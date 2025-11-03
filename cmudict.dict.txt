@@ -26,15 +26,15 @@ aaberg AA1 B ER0 G
 aachen AA1 K AH0 N
 aachener AA1 K AH0 N ER0
 aaker AA1 K ER0
-aalborg AO1 L B AO0 R G # place, danish
+aalborg AO1 L B AO0 R G
 aalborg(2) AA1 L B AO0 R G
-aalburg AE1 L B ER0 G # place, dutch
-aalen AE1 L AH0 N # place, german
+aalburg AE1 L B ER0 G
+aalen AE1 L AH0 N
 aalen(2) AA1 L AH0 N
 aaliyah AA2 L IY1 AA2
 aalseth AA1 L S EH0 TH
-aalsmeer AA1 L S M IH0 R # place, dutch
-aalto AA1 L T OW2 # name, finnish
+aalsmeer AA1 L S M IH0 R
+aalto AA1 L T OW2
 aamodt AA1 M AH0 T
 aancor AA1 N K AO2 R
 aardema AA0 R D EH1 M AH0
@@ -740,7 +740,7 @@ achiever AH0 CH IY1 V ER0
 achievers AH0 CH IY1 V ER0 Z
 achieves AH0 CH IY1 V Z
 achieving AH0 CH IY1 V IH0 NG
-achill AE1 K IH0 L # place, irish
+achill AE1 K IH0 L
 achill's AE1 K IH0 L Z
 achille AH0 K IH1 L IY0
 achilles AH0 K IH1 L IY0 Z
@@ -28081,7 +28081,7 @@ d'andrea D AE1 N D R IY2 AH0
 d'angelo D IY0 AE1 N JH IH0 L OW0
 d'angelo's D IY0 AE1 N JH IH0 L OW0 Z
 d'arcy D AA1 R S IY2
-d'artagnan D AH0 R T AE1 NG Y AH0 N # foreign french
+d'artagnan D AH0 R T AE1 NG Y AH0 N
 d'aubuisson D AO1 B W IY2 S AA2 N
 d'aviation D EY2 V IY0 EY1 SH AH0 N
 d'electricite D AH0 L EH2 K T R IH1 S AH0 T EY2
@@ -28249,7 +28249,7 @@ daiichi D AY2 IY1 CH IY0
 daikin D EY1 K IH0 N
 daikon D AY1 K AO2 N
 dail D EY1 L
-dail(2) D OY1 L # org, irish
+dail(2) D OY1 L
 daile D EY1 L
 dailey D EY1 L IY0
 dailies D EY1 L IY0 Z
@@ -28507,8 +28507,8 @@ dangerously D EY1 N JH ER0 AH0 S L IY0
 dangerousness D EY1 N JH ER0 AH0 S N AH0 S
 dangers D EY1 N JH ER0 Z
 dangews D EY1 N JH UW0 Z
-danglar D AH0 NG L AA1 R # foreign french
-danglars D AH0 NG L AA1 R Z # foreign french
+danglar D AH0 NG L AA1 R
+danglars D AH0 NG L AA1 R Z
 dangle D AE1 NG G AH0 L
 dangled D AE1 NG G AH0 L D
 dangler D AE1 NG G AH0 L ER0
@@ -42675,7 +42675,7 @@ findling F IH1 N D AH0 L IH0 NG
 findling(2) F IH1 N D L IH0 NG
 finds F AY1 N D Z
 fine F AY1 N
-fine(2) F IH1 N AH0 # org, irish
+fine(2) F IH1 N AH0
 fineberg F AY1 N B ER0 G
 fined F AY1 N D
 finefrock F AY1 N F R AA2 K
@@ -47028,7 +47028,7 @@ gazpacho G AH0 S P AA1 CH OW0
 gazprom G AE1 Z P R AA2 M
 gazzola G AA0 T S OW1 L AH0
 gdansk G D AE1 N S K
-gdp G IY1 D IY1 P IY1 # abbrev
+gdp G IY1 D IY1 P IY1
 geac G IY1 K
 geac(2) JH IY1 IY1 EY1 S IY1
 geagea JH IY1 AH0 JH IY1 AH0
@@ -55702,7 +55702,7 @@ hittner HH IH1 T N ER0
 hitty HH IH1 T IY0
 hitz HH IH1 T S
 hitzeman HH IH1 T S M AH0 N
-hiv EY1 CH AY1 V IY1 # abbrev
+hiv EY1 CH AY1 V IY1
 hive HH AY1 V
 hively HH AY1 V L IY0
 hives HH AY1 V Z
@@ -76188,7 +76188,7 @@ mcauley M AH0 K AO1 L IY0
 mcauliff M AH0 K AO1 L AH0 F
 mcauliffe M AH0 K AO1 L AH0 F
 mcauliffe's M AH0 K AO1 L AH0 F S
-mcavinchey M AH0 K AE0 V IH1 N CH IY0 # name, irish
+mcavinchey M AH0 K AE0 V IH1 N CH IY0
 mcavity M AH0 K AE1 V AH0 T IY0
 mcavoy M AE1 K AH0 V OY2
 mcbain M AH0 K B EY1 N
@@ -94343,7 +94343,7 @@ portfolio P AO0 R T F OW1 L IY0 OW2
 portfolio's P AO0 R T F OW1 L IY0 OW2 Z
 portfolios P AO0 R T F OW1 L IY0 OW2 Z
 porth P AO1 R TH
-porthos P AO0 R T AO1 S # foreign french
+porthos P AO0 R T AO1 S
 portia P AO1 R SH AH0
 portico P AO1 R T AH0 K OW2
 portier P AO1 R T IY0 ER0
@@ -111533,7 +111533,7 @@ sinkler S IH1 NG K L ER0
 sinko S IH1 NG K OW0
 sinks S IH1 NG K S
 sinn S IH1 N
-sinn(2) SH IH1 N # org, irish
+sinn(2) SH IH1 N
 sinned S IH1 N D
 sinner S IH1 N ER0
 sinners S IH1 N ER0 Z
@@ -114256,8 +114256,8 @@ spiering S P AY1 ER0 IH0 NG
 spiers S P AY1 ER0 Z
 spies S P AY1 Z
 spiess S P IY1 Z
-spieth S P IY1 TH # name
-spieth(2) S P AY1 AH0 TH # old
+spieth S P IY1 TH
+spieth(2) S P AY1 AH0 TH
 spieth's S P IY1 TH S
 spiewak S P IY1 W AE2 K
 spiffing S P IH1 F IH0 NG
@@ -119620,7 +119620,7 @@ tanzer T AE1 N Z ER0
 tanzi T AE1 N Z IY0
 tao T AW1
 tao(2) D AW1
-taoiseach T IY1 SH AH0 K # title, irish
+taoiseach T IY1 SH AH0 K
 taoiseach's T IY1 SH AH0 K S
 taoism D AW1 IH0 Z AH0 M
 taoist D AW1 IH0 S T
@@ -121730,9 +121730,9 @@ tierce T IY1 R S
 tierco T IY1 R K OW0
 tiered T IY1 R D
 tiernan T IH1 R N AH0 N
-tiernan(2) T IY1 R N AH0 N # name, irish
+tiernan(2) T IY1 R N AH0 N
 tierney T IH1 R N IY0
-tierney(2) T IY1 R N IY0 # name, irish
+tierney(2) T IY1 R N IY0
 tierno T IH1 R N OW0
 tiers T IY1 R Z
 ties T AY1 Z
@@ -124190,7 +124190,7 @@ tub T AH1 B
 tuba T UW1 B AH0
 tubal T UW1 B AH0 L
 tubb T AH1 B
-tubbercurry T AH2 B ER0 K AH1 R IY0 # place, irish
+tubbercurry T AH2 B ER0 K AH1 R IY0
 tubbs T AH1 B Z
 tubby T AH1 B IY0
 tube T UW1 B
