@@ -16,6 +16,7 @@ A deep learning system for converting written text (graphemes) into phonetic rep
 8. [Usage](#usage)
 9. [Results & Performance](#results--performance)
 10. [Technical Deep Dive](#technical-deep-dive)
+11. [Working Demo With Syntheziser Model](#Synthesizer-Demo) 
 
 ---
 
@@ -576,6 +577,144 @@ Batch of 3 words: ["cat", "hello", "a"]
 Padded:   ["cat  ", "hello", "a    "]
 Packed:   Process only: c,a,t,h,e,l,l,o,a (9 steps instead of 18)
 ```
+
+---
+
+## Synthesizer Demo
+
+### Overview
+
+The ultimate goal of this project is to have a fully integrated text-to-speech model. The workflow operates as follows:
+
+**Text Input → LSTM Model Prediction → ARPAbet to SAMPA Translation → MBROLA .wav Output**
+
+A Hugging Face Docker repository currently houses this project at:  
+https://huggingface.co/spaces/TalkNetTeamMA416/TalkingModernNETtalkTeam
+
+However, it must be run locally as it does not build on the website. Follow the steps below to run this project locally with audio support.
+
+---
+
+### Prerequisites
+
+Before starting, ensure you have the following installed and configured:
+
+- **Windows 10/11** (or compatible OS)
+- **WSL2** enabled (for Windows users)
+- **Docker Desktop** installed and configured to use the WSL2 backend
+- **Hugging Face account** and access token  
+  Create a token here: https://huggingface.co/settings/tokens
+
+---
+
+### Installation and Setup
+
+#### Step 1: Authenticate with the Hugging Face Docker Registry
+
+Open PowerShell or your terminal and run:
+```bash
+docker login registry.hf.space
+```
+
+When prompted, enter:
+- **Username**: Your Hugging Face username
+- **Password**: Your Hugging Face access token
+
+A successful login will display:
+```
+Login Succeeded
+```
+
+#### Step 2: Pull the Latest Container Image
+
+The Space automatically builds and publishes a fresh container whenever updates are pushed. To pull the latest version, run:
+```bash
+docker pull registry.hf.space/talknetteamma416-talkingmodernnettalkteam:latest
+```
+
+**Note**: This is a lengthy download (~3.5 GB). If the build recently completed on Hugging Face, this command will fetch the newest image.
+
+#### Step 3: Run the Container Locally
+
+Gradio defaults to binding only to `127.0.0.1` inside the container, which prevents external access. To fix this, use the environment variable `GRADIO_SERVER_NAME=0.0.0.0`.
+
+Run the following command:
+```bash
+docker run -it --rm \
+  -p 7860:7860 \
+  --platform=linux/amd64 \
+  -e GRADIO_SERVER_NAME=0.0.0.0 \
+  registry.hf.space/talknetteamma416-talkingmodernnettalkteam:latest
+```
+
+**For PowerShell users**, use backticks for line continuation:
+```powershell
+docker run -it --rm `
+  -p 7860:7860 `
+  --platform=linux/amd64 `
+  -e GRADIO_SERVER_NAME=0.0.0.0 `
+  registry.hf.space/talknetteamma416-talkingmodernnettalkteam:latest
+```
+
+You should see output indicating:
+```
+Running on local URL: http://0.0.0.0:7860
+```
+
+This means the service is accessible from outside the container.
+
+#### Step 4: Open the Demo in Your Browser
+
+Navigate to one of the following URLs:
+
+- **Primary**: http://localhost:7860
+- **Alternative**: http://127.0.0.1:7860
+
+If neither works, you may need to use the WSL2 network IP. Find it by running:
+```bash
+wsl hostname -I
+```
+
+Then visit:
+```
+http://<WSL-IP>:7860
+```
+
+---
+
+### Using the Synthesizer
+
+Once the web interface loads:
+
+1. Enter your text into the input textbox
+2. Click **Submit**
+3. After processing, a visualized display of your audio will appear on the right
+4. You can play, speed up or slow down, scrub through, and download the generated audio
+
+**Test your skills!** Try the provided phrases and examples on the HTML page titled **ModelDemoTestExamples.html**. See if you can score 5/5 on the provided movie quotes!
+
+---
+
+### Stopping the Container
+
+To stop the container:
+
+- **If running interactively**: Press `Ctrl + C`
+- **Manual stop**:
+```bash
+  docker ps
+  docker stop <container_id>
+```
+
+Containers started with the `--rm` flag automatically clean themselves up when stopped.
+
+---
+
+### Troubleshooting
+
+- **Download too slow?** The image is approximately 3.5 GB, so ensure you have a stable internet connection.
+- **Port already in use?** If port 7860 is occupied, change the port mapping to `-p 8080:7860` (or another available port) and access via `http://localhost:8080`.
+- **WSL2 networking issues?** Ensure Docker Desktop is properly configured to use the WSL2 backend in Settings → Resources → WSL Integration.
 
 ---
 
