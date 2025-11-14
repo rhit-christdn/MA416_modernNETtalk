@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Quotes & Network Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .clickable-item {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+        
+        .clickable-item:hover {
+            background: #e9ecef;
+            border-color: #667eea;
+            transform: translateX(5px);
+        }
+        
+        .clickable-item:active {
+            transform: scale(0.98);
+        }
+        
+        .movie-item {
+            margin: 10px 0;
+        }
+        
+        .movie-quote {
+            background: #667eea;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-style: italic;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .movie-quote:hover {
+            background: #5568d3;
+            transform: translateX(5px);
+        }
+        
+        .movie-title-box {
+            background: #764ba2;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .movie-title-box:hover {
+            background: #653a8a;
+            transform: translateX(5px);
+        }
+        
+        .movie-title {
+            display: none;
+        }
+        
+        .movie-title.revealed {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .hidden-text {
+            display: block;
+        }
+        
+        .movie-title-box.revealed .hidden-text {
+            display: none;
+        }
+        
+        .movie-title-box.revealed .movie-title {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .copy-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .copy-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hint {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Movie Quotes & Network Results</h1>
+        
+        <div class="section">
+            <h2>Fun Movie Examples</h2>
+            <p class="hint">Click on a quote to copy it, or click the box below to reveal and copy the movie title</p>
+            <div class="movie-item">
+                <div class="movie-quote" onclick="copyToClipboard(this, 'Two infinity and beyond')">Two infinity and beyond</div>
+                <div class="movie-title-box" onclick="revealAndCopy(this, 'Toy Story')">
+                    <span class="movie-title">Toy Story</span>
+                    <span class="hidden-text">Click to reveal movie</span>
+                </div>
+            </div>
+            <div class="movie-item">
+                <div class="movie-quote" onclick="copyToClipboard(this, 'I\'ll be back.')">I'll be back.</div>
+                <div class="movie-title-box" onclick="revealAndCopy(this, 'The Terminator')">
+                    <span class="movie-title">The Terminator</span>
+                    <span class="hidden-text">Click to reveal movie</span>
+                </div>
+            </div>
+            <div class="movie-item">
+                <div class="movie-quote" onclick="copyToClipboard(this, 'I\'m sorry, Dave. I\'m afraid I can\'t do that.')">I'm sorry, Dave. I'm afraid I can't do that.</div>
+                <div class="movie-title-box" onclick="revealAndCopy(this, '2001: A Space Odyssey')">
+                    <span class="movie-title">2001: A Space Odyssey</span>
+                    <span class="hidden-text">Click to reveal movie</span>
+                </div>
+            </div>
+            <div class="movie-item">
+                <div class="movie-quote" onclick="copyToClipboard(this, 'The code is more what you\'d call \'guidelines\' than actual rules.')">The code is more what you'd call 'guidelines' than actual rules.</div>
+                <div class="movie-title-box" onclick="revealAndCopy(this, 'Pirates of the Caribbean')">
+                    <span class="movie-title">Pirates of the Caribbean</span>
+                    <span class="hidden-text">Click to reveal movie</span>
+                </div>
+            </div>
+            <div class="movie-item">
+                <div class="movie-quote" onclick="copyToClipboard(this, 'Human beings have dreams. Even dogs have dreams, but not you. You are just a machine.')">Human beings have dreams. Even dogs have dreams, but not you. You are just a machine.</div>
+                <div class="movie-title-box" onclick="revealAndCopy(this, 'I Robot')">
+                    <span class="movie-title">I Robot</span>
+                    <span class="hidden-text">Click to reveal movie</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Network Wins</h2>
+            <p class="hint">Click to copy to clipboard</p>
+            <div class="clickable-item" onclick="copyToClipboard(this, 'xylophone')">xylophone</div>
+        </div>
+        
+        <div class="section">
+            <h2>Network Losses (things it does bad)</h2>
+            <p class="hint">Click to copy to clipboard</p>
+            <div class="clickable-item" onclick="copyToClipboard(this, 'Six')">Six</div>
+            <div class="clickable-item" onclick="copyToClipboard(this, 'to')">to</div>
+            <div class="clickable-item" onclick="copyToClipboard(this, 'colonel')">colonel</div>
+        </div>
+        
+        <div class="section">
+            <h2>Show Interesting Behavior</h2>
+            <p class="hint">Click to copy to clipboard</p>
+            <div class="clickable-item" onclick="copyToClipboard(this, 'Dylan')">Dylan</div>
+            <div class="clickable-item" onclick="copyToClipboard(this, 'Dillan')">Dillan</div>
+            <div class="clickable-item" onclick="copyToClipboard(this, 'Dilllan')">Dilllan</div>
+            <div class="clickable-item" onclick="copyToClipboard(this, 'Supercalifragilisticexpialidocious')">Supercalifragilisticexpialidocious</div>
+            <div class="clickable-item" onclick="copyToClipboard(this, 'Supercalifragilistic expie alidocious (added a space, then add an e)')">Supercalifragilistic expie alidocious (added a space, then add an e)</div>
+        </div>
+    </div>
+    
+    <div class="copy-notification" id="notification">Copied to clipboard!</div>
+    
+    <script>
+        function revealAndCopy(element, movieTitle) {
+            element.classList.add('revealed');
+            copyToClipboard(element, movieTitle);
+        }
+        
+        function copyToClipboard(element, text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification();
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+        
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
